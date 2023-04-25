@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ContextProvider } from './hooks/useStateContext';
 
 // import { createTheme, ThemeProvider } from '@mui/system';
 
@@ -17,7 +17,9 @@ root.render(
   // <ThemeProvider theme={darkTheme}></ThemeProvider>
   // <CssBaseline/>
   <React.StrictMode>
-    <App />
+    <ContextProvider>
+      <App />
+    </ContextProvider>
   </React.StrictMode>
 );
 
