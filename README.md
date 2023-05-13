@@ -9,4 +9,4 @@
 ![alt text](https://github.com/tranchiencongtd/quizz-app-asp-netcore-reactjs/blob/main/demo_images/main1.png?raw=true)
 
 
-![alt text](https://github.com/tranchiencongtd/Jquizz-app-asp-netcore-reactjs/blob/main/demo_images/main3.png?raw=true)
+![alt text](https://github.com/tranchiencongtd/quizz-app-asp-netcore-reactjs/blob/main/demo_images/main3.png?raw=true)
