@@ -9,7 +9,10 @@ import {
 } from '@mui/material';
 import Center from './Center';
 import useForm from '../hooks/useForm';
-import { createAPIEndpoint, ENDPOINTS } from '../api'
+import { createAPIEndpoint, ENDPOINTS } from '../api';
+
+import useStateContext from '../hooks/useStateContext';
+import { useNavigate } from 'react-router';
 
 const getFreshModel = () => ({
   name: '',
@@ -29,11 +32,12 @@ export default function Login() {
       createAPIEndpoint(ENDPOINTS.participant)
         .post(values)
         .then((res) => {
+          console.log(res);
           setContext({ participantId: res.data.participantId });
           navigate('/quiz');
         })
         .catch((err) => console.log(err));
-      console.log(values);
+    console.log(values);
   };
 
   const validate = () => {

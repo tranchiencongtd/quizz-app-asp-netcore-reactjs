@@ -133,5 +133,24 @@ namespace backend.Controllers
         {
             return (_context.Questions?.Any(e => e.QnId == id)).GetValueOrDefault();
         }
+
+        // POST: api/Question/GetAnswers
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        [Route("GetAnswers")]
+        public async Task<ActionResult<Question>> RetrieveAnswers(int[] qnIds)
+        {
+            var answers = await (_context.Questions
+                .Where(x => qnIds.Contains(x.QnId))
+                .Select(y => new
+                {
+                    QnId = y.QnId,
+                    QnInWords = y.QnInWords,
+                    ImageName = y.ImageName,
+                    Options = new string[] { y.Option1, y.Option2, y.Option3, y.Option4 },
+                    Answer = y.Answer
+                })).ToListAsync();
+            return Ok(answers);
+        }
     }
 }
